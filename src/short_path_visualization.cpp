@@ -2,10 +2,15 @@
 
 ShortPathVisualizer::ShortPathVisualizer(ros::NodeHandle& node)
 {
-    queue_length_ = 500;
+
 }
 
 ShortPathVisualizer::~ShortPathVisualizer() { }
+
+void ShortPathVisualizer::SetNodeParameters(const ros::NodeHandle& node)
+{
+    node.param<int>("path_length", parameters_.queue_length_, 500);
+}
 
 void ShortPathVisualizer::OdomToPath()
 {
