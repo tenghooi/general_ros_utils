@@ -1,0 +1,12 @@
+<launch>
+
+    <node pkg="general_ros_utils" type="short_path_visualizer" name="odom_path">
+
+        <param name="path_length" value="100" />       
+
+        <remap from="~laser_odom" to="uav1/aft_mapped_to_init" />
+        <remap from="~laser_path" to="uav_path" />
+
+    </node>
+
+</launch>
