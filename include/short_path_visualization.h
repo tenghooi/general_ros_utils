@@ -22,7 +22,7 @@ private:
 
     NodeParameters parameters_;
 
-    ros::Publisher path_msg_Pub_;
+    ros::Publisher path_msg_pub_;
     ros::Subscriber odom_msg_sub_;
 
 public:

@@ -2,7 +2,13 @@
 
 ShortPathVisualizer::ShortPathVisualizer(ros::NodeHandle& node)
 {
+    SetNodeParameters(node);
 
+    odom_msg_sub_ = node.subscribe<nav_msgs::Odometry>
+                            ("laser_odom", 10, 
+                             &ShortPathVisualizer::OdomCallBack, this);
+
+    path_msg_pub_ = node.advertise<nav_msgs::Path>("laser_path", 10);
 }
 
 ShortPathVisualizer::~ShortPathVisualizer() { }
