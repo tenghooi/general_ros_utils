@@ -30,8 +30,13 @@ int ShortPathVisualizer::getMsgCount() const
     return msg_count_;
 }
 
-void ShortPathVisualizer::OdomToPath(const geometry_msgs::PoseStamped& pose)
+void ShortPathVisualizer::OdomToPath(const std::deque<geometry_msgs::PoseStamped>& poses_) const
 {
+    nav_msgs::Path path;
+    
+    path.header = poses_.back().header;
+    
+
 
 }
 
@@ -45,7 +50,13 @@ void ShortPathVisualizer::OdomCallBack(const nav_msgs::OdometryConstPtr& odom_ms
     if (getMsgCount() <= parameters_.queue_length_)
     {
         setMsgCount();
+        poses_.push_back(current_pose);
+    } 
+    else 
+    {
+        poses_.pop_front();
+        poses_.push_back(current_pose);
     }
 
-    OdomToPath(current_pose);
+    OdomToPath(poses_);
 }
