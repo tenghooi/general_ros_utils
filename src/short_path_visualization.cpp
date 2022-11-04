@@ -35,9 +35,9 @@ void ShortPathVisualizer::OdomToPath(const std::deque<geometry_msgs::PoseStamped
     nav_msgs::Path path;
     
     path.header = poses_.back().header;
-    
+    path.poses = std::vector<geometry_msgs::PoseStamped> (poses_.begin(), poses_.end());
 
-
+    path_msg_pub_.publish(path);
 }
 
 void ShortPathVisualizer::OdomCallBack(const nav_msgs::OdometryConstPtr& odom_msg)
