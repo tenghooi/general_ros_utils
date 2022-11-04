@@ -3,11 +3,12 @@
 
 #include <iostream>
 #include <vector>
-#include <queue>
+#include <deque>
 #include <string>
 
 #include <nav_msgs/Path.h>
 #include <nav_msgs/Odometry.h>
+#include <geometry_msgs/PoseStamped.h>
 
 #include <ros/ros.h>
 
@@ -22,7 +23,10 @@ private:
 
     NodeParameters parameters_;
 
-    ros::Publisher path_msg_Pub_;
+    int msg_count_;
+    std::deque<geometry_msgs::PoseStamped> poses_;
+
+    ros::Publisher path_msg_pub_;
     ros::Subscriber odom_msg_sub_;
 
 public:
@@ -32,7 +36,10 @@ public:
 
     void SetNodeParameters(const ros::NodeHandle& node);
 
-    void OdomToPath();
+    void setMsgCount();
+    int getMsgCount() const;
+
+    void OdomToPath(const std::deque<geometry_msgs::PoseStamped>& poses_) const;
     void OdomCallBack(const nav_msgs::OdometryConstPtr& odom_msg);
 };
 
