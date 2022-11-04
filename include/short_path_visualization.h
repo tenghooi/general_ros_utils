@@ -23,6 +23,9 @@ private:
 
     NodeParameters parameters_;
 
+    int msg_count_;
+    std::queue<geometry_msgs::PoseStamped> poses_; 
+
     ros::Publisher path_msg_pub_;
     ros::Subscriber odom_msg_sub_;
 
@@ -32,6 +35,9 @@ public:
     ~ShortPathVisualizer();
 
     void SetNodeParameters(const ros::NodeHandle& node);
+
+    void setMsgCount();
+    int getMsgCount() const;
 
     void OdomToPath(const geometry_msgs::PoseStamped& pose);
     void OdomCallBack(const nav_msgs::OdometryConstPtr& odom_msg);
