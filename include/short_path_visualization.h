@@ -8,6 +8,7 @@
 
 #include <nav_msgs/Path.h>
 #include <nav_msgs/Odometry.h>
+#include <geometry_msgs/PoseStamped.h>
 
 #include <ros/ros.h>
 
@@ -32,7 +33,7 @@ public:
 
     void SetNodeParameters(const ros::NodeHandle& node);
 
-    void OdomToPath();
+    void OdomToPath(const geometry_msgs::PoseStamped& pose);
     void OdomCallBack(const nav_msgs::OdometryConstPtr& odom_msg);
 };
 
