@@ -4,7 +4,7 @@
 
         <param name="path_length" value="100" />       
 
-        <remap from="~laser_odom" to="uav1/aft_mapped_to_init" />
+        <remap from="~laser_odom" to="aft_mapped_to_init" />
         <remap from="~laser_path" to="uav_path" />
 
     </node>
