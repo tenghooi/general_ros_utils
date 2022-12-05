@@ -1,6 +1,6 @@
 <launch>
 
-    <node pkg="general_ros_utils" type="msg_header_frame_id_modification" name="frame_id_modification">
+    <node pkg="general_ros_utils" type="msg_header_frame_id_modifier" name="frame_id_modifier">
 
         <param name="change_frame_id" value="true" />       
         <param name="frame_id" value="map" />
