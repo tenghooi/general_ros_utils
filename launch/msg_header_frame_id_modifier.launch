@@ -6,6 +6,7 @@
         <param name="frame_id" value="map" />
 
         <remap from="~sub_msg" to="uav1/aft_mapped_to_init" />
+        <remap from="~pub_msg" to="uav1/pose_with_new_frame" />
 
     </node>
 
