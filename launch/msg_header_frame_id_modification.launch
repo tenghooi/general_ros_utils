@@ -1,0 +1,12 @@
+<launch>
+
+    <node pkg="general_ros_utils" type="msg_header_frame_id_modification" name="frame_id_modification">
+
+        <param name="change_frame_id" value="true" />       
+        <param name="frame_id" value="map" />
+
+        <remap from="~sub_msg" to="uav1/aft_mapped_to_init" />
+
+    </node>
+
+</launch>
