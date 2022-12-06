@@ -1,0 +1,17 @@
+<launch>
+
+    <node pkg="general_ros_utils" type="full_odom_to_path_visualizer" name="full_rtk_odom_path">
+
+        <remap from="~laser_odom" to="uav1/mavros/global_position/local" />
+        <remap from="~laser_path" to="rtk_path" />
+
+    </node>
+
+    <node pkg="general_ros_utils" type="full_odom_to_path_visualizer" name="full_lidar_odom_path">
+
+        <remap from="~laser_odom" to="uav1/pose_with_new_frame" />
+        <remap from="~laser_path" to="lidar_path" />
+
+    </node>
+
+</launch>

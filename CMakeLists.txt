@@ -55,6 +55,14 @@ target_link_libraries(short_path_visualizer
                       ${catkin_LIBRARIES}
                       )
 
+add_executable(full_odom_to_path_visualizer 
+               src/full_odom_to_path_visualization.cpp 
+               src/full_odom_to_path_visualization_node.cpp
+               )
+target_link_libraries(full_odom_to_path_visualizer
+                      ${catkin_LIBRARIES}
+                      )
+
 add_executable(msg_header_frame_id_modifier 
                src/msg_header_frame_id_modifier.cpp 
                src/msg_header_frame_id_modifier_node.cpp
