@@ -2,7 +2,9 @@
 
 PoseTransformBroadcaster::PoseTransformBroadcaster(ros::NodeHandle& node)
 {
-
+    pose_msg_sub_ = node.subscribe<nav_msgs::Odometry>
+                                  ("odom", 10,
+                                   &PoseTransformBroadcaster::PoseCallBack, this);
 }
 
 PoseTransformBroadcaster::~PoseTransformBroadcaster() { }
