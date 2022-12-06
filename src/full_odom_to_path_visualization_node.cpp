@@ -1,11 +1,11 @@
-#include "short_path_visualization.h"
+#include "full_odom_to_path_visualization.h"
 
 int main(int argc, char** argv)
 {
-    ros::init(argc, argv, "short_path_visualizer");
+    ros::init(argc, argv, "full_path_visualizer");
     ros::NodeHandle node("~");
 
-    ShortPathVisualizer short_path_visualizer_node(node);
+    FullPathVisualizer full_path_visualizer_node(node);
 
     ros::spin();
 
