@@ -1,0 +1,9 @@
+<launch>
+
+    <node pkg="general_ros_utils" type="pose_tf_broadcaster" name="tf_broadcaster">
+
+        <param name="frame_id" value="map" />
+
+    </node>
+    
+</launch>
