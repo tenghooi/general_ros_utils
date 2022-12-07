@@ -10,9 +10,7 @@
 
 struct NodeParameters
 {
-
-
-
+    std::string parent_frame_id;
 };
 
 class PoseTransformBroadcaster
@@ -20,6 +18,8 @@ class PoseTransformBroadcaster
 private:
 
     NodeParameters parameters_;
+    
+    tf2_ros::TransformBroadcaster broadcaster;
 
     ros::Subscriber pose_msg_sub_;
 
