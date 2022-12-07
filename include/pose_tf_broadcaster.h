@@ -12,6 +12,9 @@ struct NodeParameters
 {   
     bool new_parent_frame;
     std::string parent_frame_id;
+
+    bool new_child_frame;
+    std::string child_frame_id;
     
     bool pose_is_fixed;
     double fix_translation_x;
