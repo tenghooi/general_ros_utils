@@ -11,6 +11,15 @@
 struct NodeParameters
 {
     std::string parent_frame_id;
+    bool pose_is_fixed;
+
+    double fix_translation_x;
+    double fix_translation_y;
+    double fix_translation_z;
+    double fix_rotation_x;
+    double fix_rotation_y;
+    double fix_rotation_z;
+    double fix_rotation_w;
 };
 
 class PoseTransformBroadcaster
@@ -18,7 +27,7 @@ class PoseTransformBroadcaster
 private:
 
     NodeParameters parameters_;
-    
+
     tf2_ros::TransformBroadcaster broadcaster;
 
     ros::Subscriber pose_msg_sub_;
