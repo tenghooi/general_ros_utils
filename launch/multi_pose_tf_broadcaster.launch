@@ -1,0 +1,57 @@
+<launch>
+
+    <node pkg="general_ros_utils" type="pose_tf_broadcaster" name="camera_init_to_map_tf">
+
+        <param name="new_parent_frame" value="true" />
+        <param name="parent_frame_id" value="map" />
+
+        <param name="pose_is_fixed" value="true" />
+        <param name="fix_translation_x" value="0.0" />
+        <param name="fix_translation_y" value="0.0" />
+        <param name="fix_translation_z" value="0.0" />
+        <param name="fix_rotation_x" value="0.0" />
+        <param name="fix_rotation_y" value="0.0" />
+        <param name="fix_rotation_z" value="0.0" />
+        <param name="fix_rotation_w" value="1.0" />
+
+        <remap from="~odom" to="uav1/aft_mapped_to_init" />
+
+    </node>
+
+    <node pkg="general_ros_utils" type="pose_tf_broadcaster" name="aft_mapped_to_camera_init_tf">
+
+        <param name="new_parent_frame" value="false" />
+        <param name="parent_frame_id" value="map" />
+
+        <param name="pose_is_fixed" value="false" />
+        <param name="fix_translation_x" value="0.0" />
+        <param name="fix_translation_y" value="0.0" />
+        <param name="fix_translation_z" value="0.0" />
+        <param name="fix_rotation_x" value="0.0" />
+        <param name="fix_rotation_y" value="0.0" />
+        <param name="fix_rotation_z" value="0.0" />
+        <param name="fix_rotation_w" value="1.0" />
+
+        <remap from="~odom" to="uav1/aft_mapped_to_init" />
+
+    </node>
+
+    <node pkg="general_ros_utils" type="pose_tf_broadcaster" name="base_link_to_map_tf">
+
+        <param name="new_parent_frame" value="false" />
+        <param name="parent_frame_id" value="map" />
+
+        <param name="pose_is_fixed" value="false" />
+        <param name="fix_translation_x" value="0.0" />
+        <param name="fix_translation_y" value="0.0" />
+        <param name="fix_translation_z" value="0.0" />
+        <param name="fix_rotation_x" value="0.0" />
+        <param name="fix_rotation_y" value="0.0" />
+        <param name="fix_rotation_z" value="0.0" />
+        <param name="fix_rotation_w" value="1.0" />
+
+        <remap from="~odom" to="uav1/mavros/global_position/local" />
+
+    </node>
+
+</launch>

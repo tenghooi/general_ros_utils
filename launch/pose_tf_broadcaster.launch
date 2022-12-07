@@ -2,7 +2,8 @@
 
     <node pkg="general_ros_utils" type="pose_tf_broadcaster" name="tf_broadcaster">
 
-        <param name="frame_id" value="map" />
+        <param name="new_parent_frame" value="true" />
+        <param name="parent_frame_id" value="map" />
 
         <param name="pose_is_fixed" value="true" />
         <param name="fix_translation_x" value="0.0" />

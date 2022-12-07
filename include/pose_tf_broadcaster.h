@@ -9,10 +9,11 @@
 #include <tf2_ros/transform_broadcaster.h>
 
 struct NodeParameters
-{
+{   
+    bool new_parent_frame;
     std::string parent_frame_id;
+    
     bool pose_is_fixed;
-
     double fix_translation_x;
     double fix_translation_y;
     double fix_translation_z;

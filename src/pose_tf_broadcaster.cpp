@@ -12,8 +12,9 @@ PoseTransformBroadcaster::PoseTransformBroadcaster(ros::NodeHandle& node)
 PoseTransformBroadcaster::~PoseTransformBroadcaster() { }
 
 void PoseTransformBroadcaster::SetNodeParameters(const ros::NodeHandle& node)
-{
-    node.param<std::string>("frame_id", parameters_.parent_frame_id, "world");
+{   
+    node.param<bool>("new_parent_frame", parameters_.new_parent_frame, "false");
+    node.param<std::string>("parent_frame_id", parameters_.parent_frame_id, "world");
 
     node.param<bool>("pose_is_fixed", parameters_.pose_is_fixed, "true");
 
@@ -31,8 +32,17 @@ void PoseTransformBroadcaster::PoseCallBack(const nav_msgs::OdometryConstPtr& po
     geometry_msgs::TransformStamped transform_pose;
 
     transform_pose.header = pose_msg -> header;
-    transform_pose.header.frame_id = parameters_.parent_frame_id;
-    transform_pose.child_frame_id = pose_msg -> header.frame_id;
+
+    if (parameters_.new_parent_frame)
+    {
+        transform_pose.header.frame_id = parameters_.parent_frame_id;
+        transform_pose.child_frame_id = pose_msg -> header.frame_id;
+    }
+    else
+    {
+        transform_pose.child_frame_id = pose_msg -> child_frame_id;
+    }
+    
 
     if (parameters_.pose_is_fixed)
     {
