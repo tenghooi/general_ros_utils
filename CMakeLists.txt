@@ -71,4 +71,11 @@ target_link_libraries(msg_header_frame_id_modifier
                       ${catkin_LIBRARIES}
                       )
 
+add_executable(pose_tf_broadcaster 
+               src/pose_tf_broadcaster.cpp 
+               src/pose_tf_broadcaster_node.cpp
+               )
+target_link_libraries(pose_tf_broadcaster
+                      ${catkin_LIBRARIES}
+                      )
                        
