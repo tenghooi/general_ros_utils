@@ -5,6 +5,9 @@
         <param name="new_parent_frame" value="true" />
         <param name="parent_frame_id" value="map" />
 
+        <param name="new_child_frame" value="true" />
+        <param name="child_frame_id" value="odom" />
+
         <param name="pose_is_fixed" value="true" />
         <param name="fix_translation_x" value="0.0" />
         <param name="fix_translation_y" value="0.0" />
